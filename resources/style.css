@@ -186,7 +186,6 @@ div.labItem h2 {
 
 div.labItem a.labBullet:hover h2:after {
     right: 0;
-    background: #9BBB59;
 }
 
 div.labItem h2::after {
@@ -197,9 +196,23 @@ div.labItem h2::after {
     transition: right 0.4s ease-out; 
     left: -1em;
     bottom: -0.3em;
-    background: #607A29;
+    background: #9BBB59;
     height: 0.2em;
 }
+
+div.labItem h2::before {
+    content: "";
+    position: absolute;
+    z-index: -11;
+    right: 120%;
+    transition: right 0.4s ease-out; 
+    left: -1em;
+    bottom: -0.3em;
+    background: #607A29;
+    height: 0.2em;
+    right: 0;
+}
+
 
 div.labItem {
     text-align: left;
@@ -218,7 +231,7 @@ div.labItem p {
 }
 
 #aboutGrid img {
-	height: 12em;
+	height: 10em;
 	margin: 0.5em 1em;
 }
 
@@ -232,23 +245,25 @@ div.picture {
         #e9f1dd 10px
     );
 /*     background: #e5efdb; */
-    padding-top: 2.5em;
-    padding-bottom: 0.5em;
-    width: 84%;
-    margin-left: 8%;
+    padding-top: 2em;
+    padding-bottom: -0.2em;
+    width: 36em;
+    margin-left: 7em;
     margin-top: 2em;
     margin-bottom: 2em;
 }
 
 div.picture img {
-    width: 40vw;
+    width: 32em;
 }
 
 div.picture iframe {
-    width: 40vw;
-    height: 22.5vw;
+    width: 32em;
+    height: 18em;
 }
 
 div.picture p {
     font-style: italic;
+    position: relative;
+    bottom: 0.8em;
 }
