@@ -241,7 +241,12 @@ div.picture {
 }
 
 div.picture img {
-    width: 80%;
+    width: 40vw;
+}
+
+div.picture iframe {
+    width: 40vw;
+    height: 22.5vw;
 }
 
 div.picture p {
