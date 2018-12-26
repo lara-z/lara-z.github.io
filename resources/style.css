@@ -224,8 +224,12 @@ div.labItem p {
     margin-left: 10em;
 }
 
+div.aboutEntry {
+	display: inline-block;
+}
+
 #aboutGrid {
-	margin: 3em auto;
+	margin: 0em auto;
 	text-align: center;
 	width: 90%;
 }
@@ -233,6 +237,12 @@ div.labItem p {
 #aboutGrid img {
 	height: 10em;
 	margin: 0.5em 1em;
+	border: solid;
+	border-width: 1px;
+}
+
+#aboutGrid p {
+	margin: -0.35em auto 1.5em auto;
 }
 
 div.picture {
