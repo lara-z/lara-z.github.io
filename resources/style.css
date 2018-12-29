@@ -224,25 +224,25 @@ div.labItem p {
     margin-left: 10em;
 }
 
-div.aboutEntry {
-	display: inline-block;
-}
-
-#aboutGrid {
-	margin: 3em auto;
+.aboutGrid {
+	display: flex;
+	justify-content: space-around;
 	text-align: center;
-	width: 90%;
 }
 
-#aboutGrid img {
+.aboutGrid img {
 	height: 10em;
-	margin: 0.5em 1em;
 	border: solid;
 	border-width: 1px;
+	margin: 1em auto -0.5em auto;
 }
 
-#aboutGrid p {
+.aboutGrid p {
 	margin: -0.35em auto 1.5em auto;
+}
+
+#extraPics p {
+	text-align: center;
 }
 
 div.picture {
