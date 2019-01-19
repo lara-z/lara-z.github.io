@@ -10,6 +10,9 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/brands.css" integrity="sha384-IiIL1/ODJBRTrDTFk/pW8j0DUI5/z9m1KYsTm/RjZTNV8RHLGZXkUDwgRRbbQ+Jh" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="resources/three.min.js"></script>
+	<script src="resources/OrbitControls.js"></script>
+	<script src="resources/OBJLoader.js"></script>
 	<script type="text/javascript">
 	    var isMobile = false; //initiate as false
         // device detection
@@ -57,11 +60,110 @@
 	    
 		$(document).ready(function() {
 		    resize();
+		    
+		    $('.aboutGrid').find('img').click(function() {
+		        $('#modal').css('display', 'block');
+		        $('#modalImg').attr('src', this.src);
+		        $('#caption').html($('#' + this.name).html());
+		    });
+		    
+		    $('#modalClose').click(function() {
+		        $('#modal').css('display', 'none');
+		    });
+		    
+		    $(document).keyup(function(e){
+                if (e.keyCode === 27) {
+                    $('#modal').css('display', 'none');
+                }
+            });
+		    
+		    div = document.getElementById('canvas-container');
+            scene = new THREE.Scene();
+
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setPixelRatio(window.devicePixelRatio * 2);
+            renderer.setSize(div.offsetWidth, div.offsetHeight);
+
+            renderer.shadowMap.enabled = true;
+            div.appendChild( renderer.domElement );
+            //camera
+            camera = new THREE.PerspectiveCamera(
+              40,
+              div.offsetWidth / div.offsetHeight,
+              0.1,
+              1000
+            );
+            camera.position.z = 5;
+            camera.position.y = 1;
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            
+            var light = new THREE.PointLight( 0xffffff, 1.5 );
+            camera.add( light );
+            scene.add(camera)
+            
+
+            var ambLight = new THREE.AmbientLight( 0x202020 ); // soft white light
+            scene.add( ambLight );
+
+            var material = new THREE.MeshLambertMaterial({ color: 0x888888 });
+
+            //Loader for the model
+            var objLoader = new THREE.OBJLoader();
+            objLoader.load(// resource URL
+                'resources/tensegrity_model.obj',
+                // called when resource is loaded
+                function ( geometry ) {
+
+                    geometry.position.set(0, -0.8, 0);
+                    geometry.rotation.y = 1.1;
+                    geometry.traverse(function(child){
+                      if (child instanceof THREE.Mesh) {
+                        child.material = material;
+                        child.castShadow = true;
+                        child.receiveShadow = true;
+                      }
+                    });
+                    scene.add(geometry);
+                    
+                    function animate() {
+                      requestAnimationFrame(animate);
+
+                      renderer.render(scene, camera);
+                    }
+                    animate();
+
+                },
+                // called when loading is in progresses
+                function ( xhr ) {
+
+                    console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+                },
+                // called when loading has errors
+                function ( error ) {
+
+                    console.log( 'An error happened' );
+
+                })
+            
+            window.addEventListener('resize', function(){
+                    camera.aspect	= div.offsetWidth / div.offsetHeight;
+                    camera.updateProjectionMatrix();
+  
+                    renderer.setSize(div.offsetWidth, div.offsetHeight);
+                }, false)
 		});
 	</script>
 </head>
 
 <body>
+    <div id="modal" class="modal">
+        <span id="modalClose">&times;</span>
+        <img id="modalImg" class="modal-content">
+        <div id="caption"></div>
+    </div>
+    
+    
     <div id="rotate">
         <img src="resources/rotate.svg" onerror="this.src='rotate.png'">
         <p>Please rotate your device for the best viewing experience.</p>
@@ -94,6 +196,7 @@
             <div class="section">
                 <h2>TENSEGRITY ROBOT</h2>
                 <div class="line"></div>
+                <div id="canvas-container"><span><i>Drag to rotate</i></span></div>
                 <h3>Objective</h3>
                 <p>
                     Design and build new end caps for each rod of the 6-bar tensegrity robot, minimizing friction while increasing durability and mobility.
