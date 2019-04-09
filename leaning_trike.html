@@ -77,7 +77,7 @@
                 }
             });
 		    
-		    div = document.getElementById('canvas-container');
+		    div = document.getElementById("canvas-container");
             scene = new THREE.Scene();
 
             renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -88,13 +88,13 @@
             div.appendChild( renderer.domElement );
             //camera
             camera = new THREE.PerspectiveCamera(
-              40,
+              20,
               div.offsetWidth / div.offsetHeight,
               0.1,
               1000
             );
-            camera.position.z = 5;
-            camera.position.y = 1;
+            camera.position.z = 15;
+            camera.position.y = 2;
             controls = new THREE.OrbitControls(camera, renderer.domElement);
             
             var light = new THREE.PointLight( 0xffffff, 1.5 );
@@ -110,12 +110,12 @@
             //Loader for the model
             var objLoader = new THREE.OBJLoader();
             objLoader.load(// resource URL
-                'resources/tensegrity_model.obj',
+                'resources/hpv_model.obj',
                 // called when resource is loaded
                 function ( geometry ) {
 
-                    geometry.position.set(0, -0.8, 0);
-                    geometry.rotation.y = 1.1;
+                    geometry.position.set(0, -1.5, 1);
+                    geometry.rotation.y = 0.7;
                     geometry.traverse(function(child){
                       if (child instanceof THREE.Mesh) {
                         child.material = material;
@@ -194,92 +194,104 @@
         </div>
         <div id="content">
             <div class="section">
-                <h2>TENSEGRITY ROBOT <span class = "date">May 2017 - Aug 2017</span></h2>
+                <h2>DELTA-LEANING RECUMBENT TRICYCLE <span class = "date">Aug 2017 - Mar 2018</span></h2>
                 <div class="line"></div>
                 <div id="canvas-container"><span><i>Drag to rotate</i></span></div>
                 <h3>Objective</h3>
                 <p>
-                    Design and build new end caps for each rod of the 6-bar tensegrity robot, minimizing friction while increasing durability and mobility.
+                    Design (1) an aerodynamic fairing shell to increase vehicle speed and (2) a “grocery” basket to carry a carton of eggs. Assist with carbon fiber frame layups, bike part machining, and bike assembly.
                 </p>
                 <div class="picture">
-                    <img src="resources/tensegrity_final.jpg">
-                    <p>Final end cap design</p>
+                    <img src="resources/hpv_team.jpg">
+                    <p>Our team and tricycle at the ASME competition</p>
                 </div>
-                <h3>About the robot</h3>
+                <h3>About the vehicle</h3>
                 <p>
-                    BEST Lab’s versatile 6-bar tensegrity robot is intended for use in search and rescue and as a rover for Jupiter’s moon Titan. The robot moves by adjusting the tension of cables running from inside a given bar to the end of an adjacent bar, causing the robot to change shape, shift its center of mass, tip, and roll over.
+                    For the ASME (American Society of Mechanical Engineers) E-Fest West Human Powered Vehicles 2018 Competition, we built a leaning tricycle. The design allowed the vehicle chassis and rider to lean into the turn while keeping all three wheels on the ground. The competition evaluates the vehicles based on their design, innovation, and performance both in the sprint event and in the 2.5 hour endurance relay event involving slalom, speed bumps, and the ability to carry eggs without breaking them.
                 </p>
                 <div class="picture">
-                    <img src="resources/tensegrity_whole.jpg">
-                    <p>6-bar tensegrity robot with end caps at the end of each rod</p>
+                    <img src="resources/hpv_leaning.jpg">
+                    <p>Demonstrating the delta-leaning mechanism for turns</p>
                 </div>
-                <h3>My project</h3>
+                <h3>Awards</h3>
+                <ul>
+                    <li>3rd place overall</li>
+                    <li>2nd place Design Award</li>
+                    <li>Best Craftsmanship Award</li>
+                </ul>
+                <h3>The fairing</h3>
                 <p>
-                    The end caps a former graduate student developed for his master’s thesis were ultimately too complicated to implement and employ. I designed new end caps for the robot and completed all designs independently, working with tensegrity team members to ensure that my creations complemented the functionality of their components and discussing ideas with my Ph.D. student mentors for feedback.
+                    I worked in a team of four to design the fairing. We selected a rear fairing since the bike would be racing at approximately 20 mph, so a lighter rear fairing outweighed the aerodynamic advantage of a full fairing. I used SolidWorks and ANSYS to create 3D models, simulate fluid flow, and perform FEA testing to determine the optimal length and shape of the fairing. I also participated in all stages of the manufacturing process, creating the fairing from carbon fiber fabric and layering the fabric in a foam mold to create the final fairing.
                 </p>
+                <div class="picture">
+	                <img src="resources/hpv_ANSYS_fairing.png">
+	                <p>ANSYS simulation of fairing test model</p>
+	            </div>
+                <p>
+                    During the competition, we found that the bike raced faster without the fairing and removed it. Our fairing design did, however, help earn us the design award.
+                </p>
+                <div class="picture">
+                    <img src="resources/hpv_perspective.jpg">
+                    <p>Completed carbon fiber fairing</p>
+                </div>
+                <h4>Design highlights</h4>
+                <ul>
+                    <li>Lightweight carbon fiber fairing</li>
+                    <li>Height and width match exact dimensions of the rider and frame to reduce drag</li>
+                    <li>Shorter length for lighter fairing</li>
+                </ul>
+                <h3>The basket</h3>
+                <p>
+                    The endurance event in the competition involved carrying surprise “groceries” for four laps over speed bumps and slalom stretches. Since the grocery items were only revealed on the day of the race, the grocery basket had to be built to carry fragile or heavy items that fit within the given size and weight constraints. The groceries were four cartons of eggs, and only one egg broke.
+                </p>
+                <div class="picture">
+	                <iframe width="1011" height="569" src="https://www.youtube.com/embed/q1ASUCBeo8g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	                <p>The Endurance Race at ASME's 2018 E-Fest West Competition</p>
+	            </div>
+                <p>
+                    I independently designed and built the grocery basket. It consisted of a box held by a laser-cut wooden frame mounted to two aluminum flat bars (that I shaped and bent by hand), which were bolted to the acrylic flags on the side of the bike (where the yellow number 7 is). The entire grocery basket was spray painted black.
+                </p>
+                <div class="picture">
+                    <img src="resources/hpv_basket.jpg">
+                    <p>Laser cut basket frame (left) and finished basket (right)</p>
+                </div>
                 <h4>Design parameters</h4>
                 <ul>
-                    <li>Opening for cables to spool into and out of the rod</li>
-                    <li>Minimal wear and tangling of cables (two cables run through the rod)</li>
-                    <li>Frictionless cable movement with ±30˚ range of motion on all axes</li>
-                    <li>No debris able to enter the rod and impede cable movement</li>
-                    <li>Efficient assembly and removal (for robot repair)</li>
-                    <li>Easily machined in the campus machine shop</li>
+                    <li>13” x 8” x 15” maximum grocery size</li>
+                    <li>5.5 kg maximum grocery weight</li>
                 </ul>
-                <h3>End cap: intermediate version</h3>
-                <p>
-                    From initial prototyping (in Fusion 360 and FDM 3D printing) and group feedback, I learned that the end cap tip must be round so as not to impede robot motion and that a cover attached to the end cap with tiny screws or bolts was difficult to accurately machine. I designed this intermediate version to solve those problems. Because preventing the cables inside the rod from tangling was an important design factor, the inner (right) piece of the end cap was press fitted onto the rod and contained two holes to separate the cables. The outer (left) piece would then be screwed on.
-                </p>
-                <div class="picture">
-                    <img src="resources/tensegrity_intermediate.jpg">
-                    <p>3D-printed prototype</p>
-                </div>
                 <h4>Design highlights</h4>
                 <ul>
-                    <li>Rounded tip, enabling the robot to roll in any direction</li>
-                    <li>Hole on top of outer piece to prevent tangling during assembly</li>
-                    <li>Large holes for wide range of cable motion</li>
-                    <li>Easy assembly</li>
-                </ul>
-                <h4>Prototype drawbacks</h4>
-                <ul>
-                    <li>Difficult to machine threads and rounded edges of holes on inner part</li>
-                </ul>
-                <h3>End cap: final version</h3>
-                <p>
-                    This design, which originated with graduate student Alan Zhang, was ultimately selected because of its simplicity, ease of manufacturing, and ease of assembly. I learned that these three components are key in handmade projects, almost as important as optimizing design functionality. 
-                </p>
-                <p>
-                    I conceptualized, modeled, and prototyped all aspects of all previous designs. For this final design, I modified the holes and placement of the spring pins so that the cable had a wider range of motion and touched only the spring pins for minimal wear.
-                </p>
-                <div class="picture">
-                    <img src="resources/tensegrity_drawings.png">
-                    <p>Dimension drawings of final end cap and rod</p>
-                </div>
-                <h4>Design highlights</h4>
-                <ul>
-                    <li>Eye bolts through the bottom holes to securely attach end cap to rod</li>
-                    <li>Decreased cable wear by running cable over spring pins</li>
-                    <li>Large cable exit holes to prevent cable from touching end cap</li>
-                    <li>Easy to machine</li>
+                    <li>Mounting points, location, and orientation selected to to minimize shaking and help transport fragile items</li>
+                    <li>Box frame designed to assemble and hold without glue, screws, etc.</li>
+                    <li>Padding inside box for safe transportation of fragile groceries</li>
+                    <li>Box opening designed for speedy loading and unloading</li>
+                    <li>Materials selected to minimize weight, maximizing speed</li>
+                    <li>Three-bolt basket mounting to ensure quick removal during the race</li>
                 </ul>
                 <div id="extraPics">
 					<h3>Additional photos from the design process</h3>
 					<div class="aboutGrid">
-						<img src="resources/tensegrity_cap_initial.png">
-						<img src="resources/tensegrity_cap2.png">
-						<img src="resources/tensegrity_cap3.png">
+						<div>
+							<img src="resources/hpv_fairing.png">
+							<p>
+								Autodesk Fusion 360 </br> model of fairing
+							</p>
+						</div>
+						<div>
+							<img src="resources/hpv_drag_chart.png">
+							<p>
+								Graph of drag force versus fairing length </br> based on ANSYS tests
+							</p>
+						</div>
 					</div>
-					<p>
-						Fusion 360 models of a several intermediate end caps
-					</p>
 					<div class="aboutGrid">
-						<img src="resources/tensegrity_iterations.jpg">
+						 <iframe width="320em" height="180em" src="https://www.youtube.com/embed/c2mDeJqqGrw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					</div>
 					<p>
-						FDM 3D printed end caps prototypes
+						The Sprint Race at ASME's 2018 E-Fest West Competition
 					</p>
-            	</div>
+				</div>
             </div>
         </div>
 	</div>
