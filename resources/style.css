@@ -248,6 +248,16 @@ div.labItem p {
 	margin: 0.5em auto 1.5em auto;
 }
 
+.logo {
+	display: flex;
+	justify-content: space-around;
+	text-align: center;
+}
+
+.logo img {
+	margin: 2em 2em 2em 2em;
+	transition: 0.3s;}
+
 .modal {
     display: none;
     position: fixed;
