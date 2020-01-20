@@ -93,8 +93,8 @@
               0.1,
               1000
             );
-            camera.position.z = 575;
-            camera.position.y = 175;
+            camera.position.z = 550;
+            camera.position.y = 200;
             controls = new THREE.OrbitControls(camera, renderer.domElement);
             
             var light = new THREE.PointLight( 0xffffff, 1.5 );
@@ -115,7 +115,7 @@
                 function ( geometry ) {
 
                     geometry.position.set(10, 0, 0);
-                    geometry.rotation.y = 1;
+                    geometry.rotation.y = -1;
                     geometry.traverse(function(child){
                       if (child instanceof THREE.Mesh) {
                         child.material = material;
@@ -197,7 +197,7 @@
                 <h2>MECHANICAL GRIPPER FOR TETRAPLEGICS <span class = "date">Spring 2018, Spring 2019</span></h2>
                 <div class="line"></div>
                 <div id="canvas-container"><span><i>Drag to rotate</i></span></div>
-                <h3>Objective26</h3>
+                <h3>Objective27</h3>
                 <p>
                     Design and build a durable, affordable, easy-to-use, mass manufacturable gripper device for a tetraplegic person in a wheelchair to pick items from the floor and table.
                 </p>
