@@ -57,6 +57,98 @@
 	    
 		$(document).ready(function() {
 		    resize();
+		    
+		    $('.aboutGrid').find('img').click(function() {
+		        $('#modal').css('display', 'block');
+		        $('#modalImg').attr('src', this.src);
+		        $('#caption').html($('#' + this.name).html());
+		    });
+		    
+		    $('#modalClose').click(function() {
+		        $('#modal').css('display', 'none');
+		    });
+		    
+		    $(document).keyup(function(e){
+                if (e.keyCode === 27) {
+                    $('#modal').css('display', 'none');
+                }
+            });
+		    
+		    div = document.getElementById("canvas-container");
+            scene = new THREE.Scene();
+
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setPixelRatio(window.devicePixelRatio * 2);
+            renderer.setSize(div.offsetWidth, div.offsetHeight);
+
+            renderer.shadowMap.enabled = true;
+            div.appendChild( renderer.domElement );
+            //camera
+            camera = new THREE.PerspectiveCamera(
+              20,
+              div.offsetWidth / div.offsetHeight,
+              0.1,
+              1000
+            );
+            camera.position.z = 15;
+            camera.position.y = 2;
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            
+            var light = new THREE.PointLight( 0xffffff, 1.5 );
+            camera.add( light );
+            scene.add(camera)
+            
+
+            var ambLight = new THREE.AmbientLight( 0x202020 ); // soft white light
+            scene.add( ambLight );
+
+            var material = new THREE.MeshLambertMaterial({ color: 0x888888 });
+
+            //Loader for the model
+            var objLoader = new THREE.OBJLoader();
+            objLoader.load(// resource URL
+                'resources/gripper_model.obj',
+                // called when resource is loaded
+                function ( geometry ) {
+
+                    geometry.position.set(0, -1.5, 1);
+                    geometry.rotation.y = 0.7;
+                    geometry.traverse(function(child){
+                      if (child instanceof THREE.Mesh) {
+                        child.material = material;
+                        child.castShadow = true;
+                        child.receiveShadow = true;
+                      }
+                    });
+                    scene.add(geometry);
+                    
+                    function animate() {
+                      requestAnimationFrame(animate);
+
+                      renderer.render(scene, camera);
+                    }
+                    animate();
+
+                },
+                // called when loading is in progresses
+                function ( xhr ) {
+
+                    console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+                },
+                // called when loading has errors
+                function ( error ) {
+
+                    console.log( 'An error happened' );
+
+                })
+            
+            window.addEventListener('resize', function(){
+                    camera.aspect	= div.offsetWidth / div.offsetHeight;
+                    camera.updateProjectionMatrix();
+  
+                    renderer.setSize(div.offsetWidth, div.offsetHeight);
+                }, false)
 		});
 	</script>
 </head>
@@ -92,25 +184,71 @@
         </div>
         <div id="content">
             <div class="section">
-                <h2>MECHANICAL GRIPPER FOR QUADRIPLEGICS <span class = "date">Jan 2018 - May 2018</span></h2>
+                <h2>MECHANICAL GRIPPER FOR TETRAPLEGICS <span class = "date">Spring 2018, Spring 2019</span></h2>
                 <div class="line"></div>
                 <h3>Objective</h3>
                 <p>
-                    Design and build a durable, easy-to-use gripper device for a quadriplegic person in a wheelchair to pick items from the floor and table.
+                    Design and build a durable, affordable, easy-to-use, mass manufacturable gripper device for a tetraplegic person in a wheelchair to pick items from the floor and table.
                 </p>
+                
                 <div class="picture">
-                    <img src="resources/gripper_final.jpg">
-                    <p>Final prototype</p>
-                </div>
+	                <iframe width="1011" height="569" src="https://www.youtube.com/embed/j7F7ZmqnlZQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	                <p>Final product video</p>
+	            </div>
                 <h3>About the gripper</h3>
                 <p>
-                    Our wheelchair-bound quadriplegic user needed a mechanical device to obtain diverse objects that were out of her reach. I worked in an interdisciplinary team of five in the assistive technology club EnableTech to develop this gripper for her. We drew on inspiration from fishing rod mechanisms and various latching methods to design our final product.
+                    Our wheelchair-bound tetraplegic user needed a mechanical device to obtain diverse objects that were out of her reach. I worked in an interdisciplinary team of five in the assistive technology club EnableTech to develop this gripper for her in Spring 2018. We drew on inspiration from fishing rod mechanisms and various latching methods to design our final product. In Spring 2019, I and two other mechanical engineering classmates developed the prototype into a potential project through DES INV 190-2 Global Product Development.
                 </p>
+                <h2>Spring 2019 (Global Product Development Class)</h2>
+                <p>
+                	Using the <a href="#sp18">Spring 2018 device prototype</a>, two mechanical engineering classmates and I redesigned the product for the following considerations:
+				</p>
+				<ul>
+					<li>User ease of use</li>
+					<li>Design for manufacture (DFM)</li>
+					<li>Design for assembly (DFA)</li>
+					<li>Design for sustainability (DFS)</li>
+					<li>Packaging design</li>
+					<li>Design for business viability</li>
+				</ul>
+				<h3>Redesigned Product</h3>
+				<p>
+					The final product opened and closed based on wrist movement, a vast improvement over the winding mechanism of the previous prototype. Changes were also made for hand interchangeability.
+				</p>
+				<div class="picture">
+	                <iframe width="1011" height="569" src="https://www.youtube.com/embed/PYpIRoJIkPQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	                <p>Render animation of device as actuated by wrist movement</p>
+	            </div>
+                <h3>Product Packaging</h3>
+                <p>
+                	The product packaging was designed for tetraplegic users to open independently without additional tools or other aids.
+                </p>
+				<div class="picture">
+	                <iframe width="1011" height="569" src="https://www.youtube.com/embed/2b4qc3VEyFI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	                <p>Packaging Demonstration</p>
+	            </div>
+                <h4>Design highlights</h4>
+                <ul>
+                    <li>No finger dexterity required to open package</li>
+                    <li>Large perforated tab opens box: no tape, tabs, or other clasps that require dexterity</li>
+                    <li>Padding inside box holds product in place for easy removal upon opening</li>
+                </ul>
                 <div class="picture">
-                    <img src="resources/gripper_iterations.jpg">
-                    <p>Laser cut claw and reel prototypes</p>
-
+                    <img src="resources/gripper_packaging_sketch.jpeg">
+                    <p>Packaging sketch</p>
                 </div>
+                <h3>Documentation</h3>
+                <div class="picture">
+                    <img src="resources/gripper_HoQ.png">
+                    <p>House of Quality chart</p>
+                </div>  
+                              
+                <h2><a name="sp18" style="color: #000;font-weight: bold;">Spring 2018 (EnableTech Club)</a></h2>
+				<div class="picture">
+	                <iframe width="1011" height="569" src="https://www.youtube.com/embed/0-A7ePBHzYo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	                <p>Demonstration of Spring 2018 device in use</p>
+	            </div>
+<!-- 
                 <h4>Design parameters</h4>
                 <ul>
                     <li>Must pick up paper, coins, and pens from the ground as well as cans from shelves.</li>
@@ -120,14 +258,27 @@
                     <li>Must be cost-effective to produce.</li>
                     <li>Must be manufacturable within UC Berkeley Jacobs Hall resources (3D printer, laser cutter, wood shop, water jet).</li>
                 </ul>
+ -->
+                <h3>The reel</h3>
+                <p>
+                    To close the claw, our need-knower used her finger to turn a ratchet (as shown in the picture), winding up a string connected to the claw. To spring the claw open, the pawl is simply lifted, and the object is released. Since tetraplegic users often experience significant muscular atrophy, I engineered the device to reduce the apparent weight of objects by placing the rod under her arm to counterbalance heavy weights in the claw. I designed and 3D modeled the device grip to be ergonomic for the user (she cannot fully open her hands). 
+                </p>
+<!-- 
+                <h4>Design highlights</h4>
+                <ul>
+                    <li>Ratchet and pawl system to lock the claw.</li>
+                    <li>User-friendly pawl, ratchet, and elbow rest designed for mobility constraints.</li>
+                    <li>3D printed ergonomic hand holder (measured and sculpted to need-knower’s hand).</li>
+                    <li>Spring-loaded pawl for ease of object release.</li>
+                    <li>Foam-lined arm rest for comfort.</li>
+                    <li>Lightweight, durable PVC pipe arm extension.</li>
+                </ul>
+ -->
                 <h3>The claw</h3>
                 <p>
-                    The claw was laser cut and attached to the PVC pipe arm of the gripper with wood glue, nuts, and bolts. I was responsible for the claw point angle and notch (tested and optimized for picking up coins paper from the ground), the string configuration to close the claw (run through the rod from the claw pivot to an axle attached to the reel on the other end), and the two versus three claw finger arrangement.
+                    I was responsible for the claw point angle and notch (tested and optimized for picking up coins paper from the ground), the string configuration to close the claw (run through the rod from the claw pivot to an axle attached to the reel on the other end), and the two versus three claw finger arrangement.
                 </p>
-                <div class="picture">
-                    <img src="resources/gripper_claw.jpg">
-                    <p>Final claw prototype close-up</p>
-                </div>
+<!-- 
                 <h4>Design highlights</h4>
                 <ul>
                     <li>Two versus three finger claw to safely and effectively grasp objects.</li>
@@ -138,27 +289,27 @@
                     <li>Spring between claw end and point to automatically re-open claw.</li>
                     <li>¼” wood for durability when lifting heavy objects.</li>
                 </ul>
-                <h3>The reel</h3>
-                <p>
-                    To close the claw, our need-knower uses her finger to turn a ratchet (as shown in the picture), winding up a string connected to the claw. To spring the claw open, the pawl is simply lifted, and the object is released. Since quadriplegic users often experience significant muscular atrophy, I engineered the device to reduce the apparent weight of objects by placing the rod under her arm to counterbalance heavy weights in the claw. I designed and 3D modeled the reel, pawl, and red hand grip to be more user friendly, fitting the shape of the need-knower’s arm and hand (she cannot fully open her hands). 
-                </p>
-                <div class="picture">
-                    <img src="resources/gripper_sketch.jpg">
-                    <p>Concept sketch</p>
-                </div>
-                <h4>Design highlights</h4>
-                <ul>
-                    <li>Ratchet and pawl system to lock the claw.</li>
-                    <li>User-friendly pawl, ratchet, and elbow rest designed for mobility constraints.</li>
-                    <li>3D printed ergonomic hand holder (measured and sculpted to need-knower’s hand).</li>
-                    <li>Spring-loaded pawl for ease of object release.</li>
-                    <li>Foam-lined arm rest for comfort.</li>
-                    <li>Lightweight, durable PVC pipe arm extension.</li>
-                </ul>
-                <div class="picture">
-	                <iframe width="1011" height="569" src="https://www.youtube.com/embed/0-A7ePBHzYo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	                <p>Demonstration of reel in use</p>
-	            </div>
+ -->
+                <div class="aboutGrid">
+					<div>
+						<img src="resources/gripper_sketch.jpg">
+						<p>Concept sketch</p>
+					</div>
+					<div>
+						<img src="resources/gripper_iterations.jpg">
+						<p>Laser cut claw and reel prototypes</p>
+					</div>
+				</div>
+                <div class="aboutGrid">
+					<div>
+						<img src="resources/gripper_claw.jpg">
+						<p>Final claw prototype close-up</p>
+					</div>
+					<div>
+						<img src="resources/gripper_final.jpg">
+						<p>Final prototype</p>
+					</div>
+				</div>
             </div>
         </div>
 	</div>
