@@ -49,6 +49,7 @@ body {
 	width: 17em;
 	float: right;
 	position: fixed;
+	margin-bottom: -3em;
 }
 
 a, .highlighted {
@@ -69,7 +70,7 @@ a.no-highlight:hover {
 ::-moz-focus-inner {border:0;}
 
 #head h1 {
-	font-size: 2.5em;
+	font-size: 2.3em;
 	font-weight: 400;
 	text-align: right;
 	float: right;
@@ -77,7 +78,7 @@ a.no-highlight:hover {
 }
 
 #head h2 {
-	font-size: 1.5em;
+	font-size: 1.3em;
 	font-weight: 400;
 	text-align: right;
 	float: right;
@@ -105,7 +106,7 @@ svg.defs-only {
 }
 
 #links {
-	font-size: 1.5em;
+	font-size: 1.3em;
 	text-align: center;
 	margin-top: 1em;
 	font-weight: 300;
@@ -114,23 +115,30 @@ svg.defs-only {
 #content {
 	float: right;
 	width: 50em;
-	line-height: 1.8em;
+	line-height: 1.2em;
 }
 
 #content .line {
 	border: 0;
 	background: #aaa;
 	height: 1px;
-	margin: 0 0 1em;
+	margin: 1em 0 1em;
 }
 
 #content h2 {
 	font-family: Quicksand, Helvetica Neue, Helvetica, Tahoma, Verdana, sans-serif;
-	margin-top: 0.5em;
+	margin-top: 2em;
+	margin-bottom: -0.2em;
+}
+
+#content h3 {
+	font-family: Quicksand, Helvetica Neue, Helvetica, Tahoma, Verdana, sans-serif;
+	margin-top: 1.5em;
+	margin-bottom: -0.2em;
 }
 
 #content h4 {
-	font-size: 1.2em;
+	font-size: 1em;
 	font-family: Quicksand, Helvetica Neue, Helvetica, Tahoma, Verdana, sans-serif;
 	font-weight: 300;
 	font-style: italic;
@@ -138,16 +146,16 @@ svg.defs-only {
 
 #content p, li {
 	font-weight: 300;
-	font-size: 1.2em;
+	font-size: 1em;
 	line-height: 2em;
 }
 
 #content ul ul li {
-	font-size: 1em;
+	font-size: 0.8em;
 }
 
 .section {
-	margin-bottom: 5em;
+	margin-bottom: 3em;
 }
 
 #labGrid {
@@ -157,15 +165,15 @@ svg.defs-only {
 
 div.labItem a.labBullet {
     display: block;
-    height: 10em;
+    height: 7em;
 }
 
 div.labItem img {
-	height: 10em;
+	height: 8em;
 	transition: box-shadow 0.25s, opacity 0.25s;
 	float: left;
 	border: 0.3em solid #607A29;
-	border-radius: 10em;
+	border-radius: 8em;
 	z-index: 2;
 	position: relative;
 }
@@ -175,9 +183,9 @@ div.labItem a.labBullet:hover img {
 }
 
 div.labItem h2 {
-    font-size: 1.3em;
+    font-size: 1.1em;
     position: relative;
-    top: 2.5em;
+    top: 2.1em;
     left: 1em;
     z-index: 1;
     transition: border-bottom 0.25s;
@@ -223,6 +231,18 @@ div.labItem p {
     position: relative;
     bottom: 3em;
     margin-left: 10em;
+	margin-bottom: -1em;
+}
+
+#publication h3 {
+	font-family: Quicksand, Helvetica Neue, Helvetica, Tahoma, Verdana, sans-serif;
+	text-decoration: underline;
+	margin-bottom: -2.3em;
+}
+
+#publication p {
+	font-family: Quicksand, Helvetica Neue, Helvetica, Tahoma, Verdana, sans-serif;
+	font-weight: normal;
 }
 
 .aboutGrid {
@@ -288,7 +308,7 @@ div.labItem p {
     color: #ddd;
     padding: 1em 0;
     height: 5em;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
 #modalClose {
@@ -296,7 +316,7 @@ div.labItem p {
     top: 1em;
     right: 3em;
     color: #eee;
-    font-size: 2em;
+    font-size: 1.8em;
     font-weight: bold;
     transition: 0.3s;
 }
@@ -337,20 +357,20 @@ div.picture {
         #e9f1dd 5px,
         #e9f1dd 10px
     );
-    padding-top: 2em;
+    padding-top: 1em;
     padding-bottom: -0.2em;
-    width: 36em;
-    margin-left: 7em;
+    width: 42em;
+    margin-left: 2em;
     margin-top: 2em;
     margin-bottom: 2em;
 }
 
 div.picture img {
-    width: 32em;
+    width: 38em;
 }
 
 div.picture iframe {
-    width: 32em;
+    width: 38em;
     height: 18em;
 }
 
