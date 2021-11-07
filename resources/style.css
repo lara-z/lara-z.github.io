@@ -127,7 +127,7 @@ svg.defs-only {
 
 #content h2 {
 	font-family: Quicksand, Helvetica Neue, Helvetica, Tahoma, Verdana, sans-serif;
-	margin-top: 2em;
+	margin-top: 0.3em;
 	margin-bottom: -0.2em;
 }
 
@@ -355,29 +355,33 @@ div.picture {
     text-align: center;
     background: repeating-linear-gradient(
         -45deg,
-        #e5efdb,
-        #e5efdb 5px,
-        #e9f1dd 5px,
-        #e9f1dd 10px
+        #f2f7ed,
+        #f2f7ed 5px,
+        #F1F6EC 5px,
+        #F1F6EC 10px
     );
     padding-top: 1em;
     padding-bottom: -0.2em;
-    width: 42em;
-    margin-left: 2em;
+/*     width: 42em; */
+/*     margin-left: 2em; */
     margin-top: 2em;
     margin-bottom: 2em;
 }
 
 div.picture img {
-    width: 38em;
+    width: 95%;
+    border: 1px solid #999;
 }
 
 div.picture iframe {
-    width: 38em;
+    width: 95%;
     height: 18em;
 }
 
 div.picture p {
+    width: 90%;
+    margin-left: auto;
+	margin-right: auto;
     font-style: italic;
     position: relative;
     bottom: 0.8em;

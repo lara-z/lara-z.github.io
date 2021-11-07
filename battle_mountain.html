@@ -198,13 +198,13 @@
                 <h2>HUMAN-POWERED SPEED VEHICLE <span class = "date">May 2018 - Aug. 2019</span></h2>
                 <div class="line"></div>
 <!--                 <div id="canvas-container"><span><i>Drag to rotate</i></span></div> -->
-                <h3>Objectives</h3>
+                <h3>My objectives</h3>
                 <p>
-                    Led the design, testing, and manufacturing of a human-powered vehicle. Designed and prototyped an aluminum frame for the vehicle that will be safe at high speeds. Designed an aerodynamic fairing shell for the vehicle.
+                    Lead the design, testing, and manufacturing of a human-powered vehicle with a goal speed of 70 mph. Design and prototype an aluminum frame for the vehicle that will be safe at high speeds. Design an aerodynamic fairing shell for the vehicle.
                 </p>
                 <div class="picture">
-	                <img src="resources/bm_sketch.jpg">
-	                <p>A sketch of an intermediate frame design</p>
+	                <img src="resources/bm_idea.jpg">
+	                <p>A sketch of the vehicle design</br>Due to COVID-19, the team pivoted to other projects, and the vehicle was never completed</p>
 	            </div>
                 <h3>About the vehicle</h3>
                 <p>
@@ -215,32 +215,35 @@
                 	We created an adjustable wooden model to determine the optimal bike geometry (seat angle, pedal location, wheels, chassis width, etc.) for our rider.
                 </p>
                 <div class="picture">
-	                <img src="resources/bm_placement_prototype.jpg">
+	                <img src="resources/bm_wood_prototype 1.jpg">
 	                <p>Model to determine the placement of the seat, pedals, and wheels</p>
-	            </div>
-	            <div class="picture">
-	                <img src="resources/bm_platement_prototype_2.jpg">
-	                <p>Inside view of above model to determine vehicle geometry</p>
 	            </div>
                 <p>
                 	Once we finalized that model, we re-created it on a 2D wooden bike that the rider could ride to double check our dimensions and test our initial drivetrain design.
                 </p>
-                <div class="picture">
+	            <div class="picture">
+	                <img src="resources/bm_wood_prototype_2.jpg">
                 	<div class="aboutGrid">
 					 	<iframe width="640" height="360" src="https://www.youtube.com/embed/GQsGLDS7mpM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					</div>
-	                <p>Wooden prototype using the dimensions from the initial model</p>
+	                <p>A more refined, rideable wooden model using the dimensions from the initial model</p>
 	            </div>
                 <h3>The frame</h3>
+                <div class="picture">
+	                <img src="resources/bm_sketch.jpg">
+	                <p>A sketch of an intermediate frame design</p>
+	            </div>
                 <p>
-                    I led a team of five in the design, testing, and manufacturing of the vehicle frame. We selected an aluminum frame because it is easier to manufacture and can be simulated more realistically for safety tests than carbon fiber. To create the frame, we took the limiting measurements of the bike system in our wooden prototypes then created the frame around the rider's dimensions.
+                    I led a team of five in the design, testing, and manufacturing of the vehicle frame. We selected an aluminum frame because it is easier to manufacture and can be simulated more realistically for safety tests than carbon fiber. The frame shape was inspired by previous bike designs and stress simulated in SolidWorks with guidance from Ford and GM.
                 </p>
+<!-- 
                 <div class="picture">
 	                <img src="resources/bm_render.png">
 	                <p>SolidWorks frame rendering of final design</p>
 	            </div>
+ -->
                 <p>
-                    Using the impulse momentum equations, I calculated the force that would act on the vehicle in different crash scenarios (top, front, and side for rolling). I used the results of these equations to determine the parameters for FEA analysis testing in SolidWorks. Selecting a factor of safety of 10, we determined that the model would pass the test if it exhibited no more than 0.1 inches around the rider's torso and head or no more than 2 inches at the cranks. These tests were performed in a worst-case scenario where the vehicle is driving without the fairing.
+                    Using the impulse momentum equations, I calculated the force that would act on the vehicle in different worst-case crash scenarios (top, front, and side for rolling). Selecting a factor of safety of 10, we required no more than 0.1 inch deformation around the rider's torso and head or no more than 2 inches at the cranks.
                 </p>
                 <div class="picture">
 	                <img src="resources/bm_testing.png">
@@ -256,18 +259,18 @@
 	            <p>
 	            	Along the way, we also tested the idea of incorporating a universal joint in our sprocket movement during steering to prevent the chains from rubbing and derailing. We ultimately did not include this in our final design since it was too bulky for the already-snug chassis. <!-- After much research, testing, and calculating, we decided to remove the universal joint from our system because the smallest structurally sound joint system was too large to fit between the rider's knees and because the steering could be re-structured in a different way that would allow for a smaller but still acceptable steering range. In our idea, one chain would run from the pedals to an fixed, intermediate sprocket on one side of the joint, then another chain would run from a movable sprocket on the other side of the joint to the front wheel axle. -->
 	            </p>
-                <div class="picture">
-	                <img src="resources/bm_universal_joint.jpg">
+                <div class="picture" style="width:20em; margin: auto;">
+	                <img style="width:18em" src="resources/bm_universal_joint.jpg">
 	                <p>A test of the universal joint steering idea</p>
 	            </div>
 	            <h3>About the vehicle design</h3>
-	            <h4>Vehicle Design parameters</h4>
+	            <h4>Vehicle design parameters</h4>
                 <ul>
                     <li>Should go at least 70 mph in 2.5 miles</li>
                     <li>Must be designed to dimensions of selected rider</li>
                     <li>Must cost less than $14,000</li>
                 </ul>
-                <h4>Vehicle Design highlights</h4>
+                <h4>Vehicle design highlights</h4>
                 <ul>
                     <li>Recumbent rider to minimize frontal surface area, reducing drag, increasing maximum speed</li>
                     <li>Large front wheel (and rider with long legs) selected for highest speed</li>
