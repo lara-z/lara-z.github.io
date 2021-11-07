@@ -260,9 +260,11 @@ div.labItem p {
 	cursor: pointer;
 }
 
+/* 
 .aboutGrid img:hover {
     opacity: 0.7;
 }
+ */
 
 .aboutGrid p {
 	margin: 0.5em auto 1.5em auto;

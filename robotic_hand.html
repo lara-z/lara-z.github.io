@@ -44,6 +44,9 @@
 		    }
 		    
 		    // say to rotate screen
+		    if ($('#head').width() + $('#content').width() > $('#main').width()) {
+                $('#head').css('font-size', '0.5em');
+            }
             if (isMobile) {
                 if (window.innerHeight > window.innerWidth) {
                     $('#rotate').show();
@@ -274,25 +277,28 @@
                 <h3>Prototypes from the design process</h3>
                 <div class="aboutGrid">
 					<div>
-						<img src="resources/hand_test_cables.gif">
+<!-- 						<img src="resources/hand_test_cables.gif"> -->
+						<img src="resources/hand_test_cables.jpg" onmouseover="this.src='resources/hand_test_cables.gif'" onmouseout="this.src='resources/hand_test_cables.jpg'">
 						<p>Testing cables before motorizing</p>
 					</div>
 					<div>
-						<img src="resources/hand_assembly.gif">
+						<img src="resources/hand_assembly.jpg" onmouseover="this.src='resources/hand_assembly.gif'" onmouseout="this.src='resources/hand_assembly.jpg'">
 						<p>Finger assembly</p>
 					</div>
 				</div>
                 <div class="aboutGrid">
 					<div>
-						<img src="resources/hand_RSS.gif">
+<!-- 						<img src="resources/hand_RSS.gif"> -->
+						<img src="resources/hand_RSS.jpg" onmouseover="this.src='resources/hand_RSS.gif'" onmouseout="this.src='resources/hand_RSS.jpg'">
 						<p>Testing the finger used in the <a href = "https://arxiv.org/abs/2107.07501" target="_blank">RSS publication</a></p>
 					</div>
 					<div>
-						<img src="resources/hand_egg_prelim.gif">
-						<p>Verifying egg gripper shape</p>
+<!-- 						<img src="resources/hand_egg_prelim.gif"> -->
+						<img src="resources/hand_egg_prelim.jpg" onmouseover="this.src='resources/hand_egg_prelim.gif'" onmouseout="this.src='resources/hand_egg_prelim.jpg'">
+						<p>Verifying egg gripper grasp</p>
 					</div>
 					<div>
-						<img src="resources/hand_cyclic_testing.gif">
+						<img src="resources/hand_cyclic_testing.jpg" onmouseover="this.src='resources/hand_cyclic_testing.gif'" onmouseout="this.src='resources/hand_cyclic_testing.jpg'">
 						<p>Cyclic testing: motion remains reliable after 4 hours</p>
 					</div>
 				</div>

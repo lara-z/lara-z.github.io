@@ -41,6 +41,9 @@
 		    }
 		    
 		    // say to rotate screen
+		    if ($('#head').width() + $('#content').width() > $('#main').width()) {
+                $('#head').css('font-size', '0.5em');
+            }
             if (isMobile) {
                 if (window.innerHeight > window.innerWidth) {
                     $('#rotate').show();
