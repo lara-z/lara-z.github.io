@@ -194,66 +194,62 @@
                 <a href="https://www.linkedin.com/in/lara-zlokapa" target = "_blank"><i class="fab fa-linkedin"></i></a>
             </div>
             <div id="links">
-                <a href="resources/resume-online.pdf" target = "_blank">Resume</a> | <a href="resources/cv-online.pdf" target = "_blank">CV</a> <!--- | <a href="resources/portfolio-online.pdf" target = "_blank">Portfolio</a> -->
+                <a href="resources/resume-online.pdf" target = "_blank">Resume</a> | <a href="resources/portfolio-online.pdf" target = "_blank">Portfolio</a>
             </div>
         </div>
         <div id="content">
             <div class="section">
                 <h2>MODULAR, SENSORIZED ROBOTIC HANDS <span class = "date">Aug. 2020 - Present</span></h2>
                 <div class="line"></div>
+                <h2 class = "subtitle">Masters Thesis under Profs. Wojciech Matusik and Pulkit Agrawal, CSAIL <span class = "date">MIT, Cambridge, MA</span></h2>
 <!--                 <div id="canvas-container"><span><i>Drag to rotate</i></span></div> -->
                 <p>
-                    I performed this work at MIT under the supervision of Professors Wojciech Matusik and Pulkit Agrawal as part of my master's research. Jie Xu developed a computer program to assemble the components and assembly rules I created. Kui Wu and Yiyue Luo created a computer program to automatically generate knitted tactile sensors that correspond to the shape of the manipulators I designed.
+                    This work also appears in <a href = "http://www.roboticsproceedings.org/rss17/p008.pdf" target="_blank"><i>An End-to-End Differentiable Framework for Contact-Aware Robot Design</i> (Robotics: Science and Systems)</a>.
                 </p>
+                <h3>My contributions</h3>
                 <p>
-                    This work was also used in <a href = "https://arxiv.org/abs/2107.07501" target="_blank"><i>An End-to-End Differentiable Framework for Contact-Aware Robot Design</i> (Robotics: Science and Systems)</a>.
+                	Created parametrized, modular, sensorized, cable-driven robotic manipulators with automated assembly (via grammar production rules) and manufacturing. In doing so, I...
+                	<ul>
+                		<li>Designed and CADded input modular components in SolidWorks</li>
+                		<li>Prototyped many configurations of the modular hands using FDM 3D printers</li>
+                		<li>Programmed (in Python) open-loop controls for four manipulator configurations to perform four tasks</li>
+                	</ul>
                 </p>
-                <h3>Objectives</h3>
+                <div class="picture">
+	                <img src="resources/hand_4manipulators.jpg">
+	                <p>I designed, fabricated, and programmed four modular manipulators to perform four tasks</p>
+	            </div>
+                <h3>About the hands</h3>
                 <p>
-                	Reduce the time taken to design new, sensorized robotic manipulators by providing a versatile array of modular components with automated assembly (via grammar production rules) and manufacturing.
-                </p>
-                <h3>About the hand</h3>
-                <p>
-                    Robotic hands are time-consuming to design from scratch and require extensive testing to produce a high-quality product.
-                    To streamline this process, I created a pipeline for designing and manufacturing cable-driven robotic manipulators with 
-                    integrated tactile sensing. In addition, I designed a "Lego kit" of subcomponent 3D models and assembly instructions (grammar production rules) so that, 
-                    given these subcomponents and assembly rules, a user can quickly combine subcomponents to create a custom functional, manufacturable, and sensorized
-                    manipulators. Once the robot manipulator is virtually assembled in the pipeline program, the shape can be further refined, and 3D printing and machine knitting files will be automatically generated
-                    to manufacture the robotic hand with knitted tactile sensing.
+                    To overcome time-consuming and trial-and-error process of designing robotic hands, I created a pipeline to generate modular, parametrized, sensorized robotic manipulators. With this, users can develop new manipulators in minutes.
                 </p>
                 <div class="picture">
 	                <img src="resources/hand_workflow.jpg">
-	                <p>An overview of the design workflow developed for designing robotic hands</p>
+	                <p>An overview of the design workflow I developed for designing robotic hands</p>
 	            </div>
-                <div class="picture">
-	                <img src="resources/hand_possibilities.jpg">
-	                <p>Some manipulator topologies produced by the pipeline (before geometric deformation)</p>
-	            </div>
-                <div class="picture">
+                <div class="picture" id = "video">
 	                <iframe width="1011" height="569" src="https://www.youtube.com/embed/bwEOURdOgr4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	                <p>To test my pipeline, I created four manipulators to perform four tasks</p>
+	                <p>I created and programmed four manipulators to perform four tasks to test my pipeline</p>
 	            </div>
                 <h3>Modular design</h3>
-                <p>
-                	I designed a "Lego kit" of virtual subcomponents that can be combined following a set of assembly "grammar production" rules to create manipulator hands of many topologies. The subcomponents are specially designed to maintain manufacturability after geometric deformation (the second step of the pipeline) and to effectively route cables in any of the almost infinite combinations of subcomponents. The production rules were chosen to ensure a manufacturable and functional manipulator design.
-                </p>
-                <p>
-                	With only thirteen input components and twenty-two assembly rules, the design space is incredibly rich: it can create on the order of 10<sup>19</sup> unique robotic manipulator topologies.
-                </p>
                 <p>
                 	 To create a manipulator, the user first applies the palm assembly rules on a computer to combine the palm subcomponents until they form a 3D model of their desired palm. Then, they apply the finger production rules to generate fingers on the palm. The result is a complete 3D model of the robotic hand ready for manufacturing.
                 </p>
                 <div class="picture">
 	                <img src="resources/hand_components.jpg">
-	                <p>The "Lego kit" of subcomponents is assembled virtually using assembly instructions (grammar production rules) to create a 3D model of the robot manipulator</p>
+	                <p>I designed a "Lego kit" of subcomponents that merge virtually to create any cable-driven hand.</p>
 	            </div>
                 <div class="picture">
 	                <iframe width="1011" height="569" src="https://www.youtube.com/embed/4YRbAFfHVug" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	                <p>Assembly of subcomponents using assembly instructions (grammar production rules)</p>
 	            </div>
+                <div class="picture">
+	                <img src="resources/hand_possibilities.jpg">
+	                <p>I designed the modular components and assembly rules to always ensure manufacturability and valid cable pathways.</p>
+	            </div>
                 <h3>Geometric deformation</h3>
                 <p>
-                	No robotic manipulators to-date allow custom deformation before manufacturing. With my design, users can narrow, widen, lengthen, and shorten components of their robotic manipulator CAD to create a more optimally sized robotic hand.
+                	Unlike most modular manipulators, with my design, users can narrow, widen, lengthen, and shorten components of their robotic manipulator CAD to create a more optimally sized robotic hand.
                 </p>
                 <div class="picture">
 	                <iframe width="1011" height="569" src="https://www.youtube.com/embed/k9CvFEQuAXA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -264,20 +260,22 @@
                 	Using the design pipeline, I designed, manufactured, programmed, and tested four robotic hands: (1) an egg picker picks up, shakes, and puts down an egg; (2) a finger screws in a wing nut until tight; (3) a water bottle sorter grasps a water bottle, detects whether it is full or empty, then places it in a bin if empty or (if full) empties it then places it in the bin; and (4) a paper cutter uses any pair of office scissors to cut paper and will detect if a harder material is substituted.
                 </p>
                 <div class="picture">
-	                <img src="resources/hand_4manipulators.jpg">
+	                <img src="resources/hand_4manipulators_with_models.jpg">
 	                <p>3D models and manufactured manipulators created to test the design pipeline. The pink patches on the 3D models show sensing locations.</p>
 	            </div>
                 <p>
                     The robot hands produced by the pipeline are cable-driven and actuated by Dynamixel motors. I programmed the motor movement and control from scratch in Python. Due to time contraints, I implemented only based if-then style open loop control. The tasks successfully demonstrated the efficacy of the design pipeline.
                 </p>
-                <p>
-                    The sensors consist of two knitted layers with orthogonally overlapping piezoresistive fibers. Sensing points occur where the fibers overlap and are read by a custom circuit and program developed by Wojciech Matusik's lab.
-                </p>
                 <div class="picture">
 	                <img src="resources/hand_sensor_readings.jpg">
-	                <p>Left: The two knitted layers of a sensor before assembly</br>Right: A demonstration of sensor readings while picking up and shaking an egg</p>
+	                <p>Left: The two knitted layers of a tactile sensor before assembly</br>Right: A demonstration of sensor readings while picking up and shaking an egg</p>
 	            </div>
 
+                <h3>Acknowledgments</h3>
+                <p>
+                    I performed this work at MIT under the supervision of Professors Wojciech Matusik and Pulkit Agrawal as part of my master's research. Jie Xu developed a computer program to assemble the components and assembly rules I created. Kui Wu and Yiyue Luo created a computer program to automatically generate knitted tactile sensors that correspond to the shape of the manipulators I designed.
+                </p>
+                
                 <h3>Prototypes from the design process</h3>
                 <div class="aboutGrid">
 					<div>
